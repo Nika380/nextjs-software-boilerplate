@@ -53,19 +53,16 @@ const SideNav = ({ children }: any) => {
     },
   ];
 
-  const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout style={{ height: "100vh", position: "fixed", top: "0", left: "0" }}>
       <Sider
-        collapsible
-        collapsed={collapsed}
-        onCollapse={(value) => setCollapsed(value)}
-        style={{ paddingTop: "80px", minHeight: "100vh" }}
+        style={{ paddingTop: "80px", minHeight: "100vh"}}
       >
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
-          defaultSelectedKeys={[""]}
+          defaultSelectedKeys={[pathname]}
+          selectedKeys={[pathname]}
           mode="inline"
           items={menuItems}
         />
@@ -83,7 +80,7 @@ const SideNav = ({ children }: any) => {
             overflowY: "scroll",
             position: 'fixed',
             top: '70px',
-            left: collapsed ? "80px" : "200px"
+            left: "80px"
           }}
         >
           {children}
